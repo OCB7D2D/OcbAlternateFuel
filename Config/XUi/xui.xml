@@ -1,0 +1,17 @@
+<config>
+
+  <!-- Add additional info for requirements for OcbSlotPreview and OcbWorkstationFuelGrid -->
+  <!-- These controllers will fetch info from the passed `CustomAttributes` (as done by Harmony patch) -->
+  <!--
+  <insertAfter xpath="/xui/ruleset/window_group[@name='workstation_cementMixer']/window[@name='windowCraftingQueue']">
+    <window name="windowFuel" fuel_sprite="ammoGasCan" fuel_tags="gasoline" />
+  </insertAfter>
+  -->
+
+  <!-- Example to enable fuel requirements and specific type (by tags) for Work Benches --><!--
+  <insertAfter xpath="/xui/ruleset/window_group[@name='workstation_workbench']/window[@name='windowCraftingQueue']">
+    <window name="windowFuel" fuel_sprite="ammoArrowStone" fuel_tags="gasoline" />
+  </insertAfter>
+  -->
+
+</config>

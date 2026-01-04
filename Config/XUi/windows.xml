@@ -1,0 +1,19 @@
+<config>
+
+  <!-- Change Controller for any WorkstationFuelGrid to accept fuel requirements -->
+  <setattribute xpath="/windows/window[@name='windowFuel']//grid[@controller='WorkstationFuelGrid']" name="controller">
+    OcbWorkstationFuelGrid, AlternateFuel
+  </setattribute>
+
+  <!-- Change Controller for the "shared" fuel window to allow custom icon for fuel requirement -->
+  <setattribute xpath="/windows/window[@name='windowFuel']//grid[@name='slot_preview']" name="controller">
+    XUiC_OcbSlotPreview, AlternateFuel
+  </setattribute>
+
+  <!-- Change the actual sprite in the UI XML to reference a placeholder from OcbSlotPreview controller -->
+  <setattribute xpath="/windows/window[@name='windowFuel']//grid[@name='slot_preview']//sprite[@sprite='resourceWood']" name="sprite">
+    {fuelSprite}
+  </setattribute>
+
+
+</config>

@@ -1,0 +1,21 @@
+<configs>
+
+  <!-- append to existing tags in blocks that have a FuelValue property -->
+  <!-- add `and not(contains(@value, 'gasoline'))` to exclude gasoline to be biofuel -->
+  <csv xpath="/items/item/property[@name='Tags' and ../property[@name='FuelValue']]/@value" delim="," op="add">
+    biofuel
+  </csv>
+
+  <!-- insert new tag property in blocks that have a FuelValue property, but no tags yet -->
+  <insertafter xpath="/items/item/property[@name='FuelValue' and not(../property[@name='Tags'])]">
+    <property name="Tags" value="biofuel"/>
+  </insertafter>
+
+  <!-- example to make the motorcycle driveable by wood -->
+  <!--
+  <append xpath="/items/item[@name='vehicleMotorcyclePlaceable']">
+    <property name="fuelItem" value="resourceWood" />
+  </append>
+  -->
+  
+</configs>

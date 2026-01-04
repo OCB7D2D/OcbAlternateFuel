@@ -1,0 +1,26 @@
+<configs>
+
+  <!-- append to existing tags in blocks that have a FuelValue property -->
+  <!-- add `and not(contains(@value, 'gasoline'))` to exclude gasoline to be biofuel -->
+  <csv xpath="/blocks/block/property[@name='Tags' and ../property[@name='FuelValue']]/@value" delim="," op="add">
+    biofuel
+  </csv>
+
+  <!-- insert new tag property in blocks that have a FuelValue property, but no tags yet -->
+  <insertafter xpath="/blocks/block/property[@name='FuelValue' and not(../property[@name='Tags'])]">
+    <property name="Tags" value="biofuel"/>
+  </insertafter>
+
+  <!-- example to enable fuel window and requirement (with specific type) for the Cement Mixer --><!--
+  <csv xpath="/blocks/block[@name='cementMixer']/property[@class='Workstation']/property[@name='Modules']/@value" delim="," op="add">
+    fuel
+  </csv>
+  -->
+
+  <!-- example to enable fuel window and requirement (with specific type) for the Work Benches --><!--
+  <csv xpath="/blocks/block[@name='workbench']/property[@class='Workstation']/property[@name='Modules']/@value" delim="," op="add">
+    fuel
+  </csv>
+  -->
+
+</configs>
